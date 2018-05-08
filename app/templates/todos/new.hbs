@@ -1,1 +1,18 @@
-{{outlet}}
+<form>
+    
+    <div class="form-group">
+        <label>Title</label>
+         {{input type="text" value=title class="form-control" placeholder="Add Todo..."}}
+    </div>
+    
+    <div class="form-group">
+        <label>Due Date</label>
+         {{input type="date" value=date class="form-control"}}
+    </div>
+    <div class="form-group">
+        <label>Body</label>
+        {{input type="text" value=body class="form-control" placeholder="Todo Body..."}}
+    </div>
+    <button {{action 'addTodo'}} class="btn btn-primary">Submit</button>
+    {{#link-to 'todos' class="btn btn-default"}}Cancel{{/link-to}}
+</form>
