@@ -4,8 +4,6 @@ export default Ember.Controller.extend({
     actions:{
         addTodo: function(){
             var date = this.get('date');
-            {{debugger}}
-            
             var title = this.get('title');
             var body = this.get('body');
             var todoObject = this.store.createRecord('todo', {
@@ -13,6 +11,7 @@ export default Ember.Controller.extend({
                 date: new Date(date),
                 body: body
             });
+         
 
             todoObject.save();
 
