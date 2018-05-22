@@ -1,28 +1,23 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	actions:{
-		addTodo: function(){
-			var date = this.get('date');
-			var title = this.get('title');
-			var body = this.get('body');
+    actions:{
+        addTodo: function(){
+            var date = this.get('date');
+            var title = this.get('title');
+            var body = this.get('body');
+            var todoObject = this.store.createRecord('todo', {
+                title: title,
+                date: new Date(date),
+                body: body
+            });
+            todoObject.save();
 
-			// Create New Todo
-			var newTodo = this.store.createRecord('todo', {
-				title: title,
-				body: body,
-				date: new Date(date)
-			});
+            this.setProperties({
+                title: '',
+                body: ''
+            });
+        }
+    }
 
-			// Save to FB
-			newTodo.save();
-
-			// Clear
-			this.setProperties({
-				title: '',
-				body: '',
-				date: ''
-			});
-		}
-	}
 });

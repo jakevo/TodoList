@@ -1,1 +1,18 @@
-{{outlet}}
+<form id="edit-todo-form">
+	<div class="form-group">
+		<label>Title</label>
+		{{input type="text" class="form-control" value=model.title placeholder="Add Todo..."}}
+	</div>
+	<div class="form-group">
+		<label>Due Date</label>
+        {{debugger}}
+		{{input type="date" class="form-control" value="05/02/18"}}
+	</div>
+	<div class="form-group">
+		<label>Body</label>
+		{{textarea class="form-control" value=model.body placeholder="Todo Body..."}}
+	</div>
+	<button {{action 'editTodo' model.id}} class="btn btn-primary">Save</button> 
+    <button {{action 'deleteTodo' model.id}} class="btn btn-danger">Delete</button>
+	{{#link-to 'todos' class='btn btn-default'}}Close{{/link-to}}
+</form>
